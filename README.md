@@ -676,7 +676,9 @@ then we add our Apache Airflow endpoint
 
 
 
-![runtimeA](assets/images/posts/README/runtimeA.jpg)
+
+
+![](assets/images/posts/README/runtimeA2.jpg)
 
 
 
@@ -695,13 +697,29 @@ at the end of the file  we add
 192.168.0.7 myminio.server
 ```
 
+then you can check if works.
+
+ You should also be able to connect to Console of Minio  by visiting [http://myminio.server:<port>/login](http://myminio.server/) in your browser where <port> is the port of you Minio Console Server.
+
+
+
 and then we return back to our setup
 
 ![](assets/images/posts/README/minio2.jpg)
 
 
 
+
+
+
+
 then **save and close**
+
+
+
+![](assets/images/posts/README/Capture2a.JPG)
+
+
 
 ### Step 9. Airflow editor
 
@@ -727,7 +745,34 @@ we create a new notebook
 
 
 
-then ...
+then we select open properties
+
+<img src="assets/images/posts/README/Capture3a.jpg" style="zoom:50%;" />
 
 
 
+and we call the this node like `input` for the node and we select the filename the notebook 
+
+`../input/input-data.ipynb` and we select the Runtime image Anaconda
+
+<img src="assets/images/posts/README/Capture3.JPG" alt="Capture6" style="zoom:50%;" />
+
+then we return back and  run
+
+<img src="assets/images/posts/README/Capture4.JPG" alt="Capture5" style="zoom:50%;" />
+
+
+
+then call the pipeline etl
+
+<img src="assets/images/posts/README/Capture5.JPG" alt="Capture4" style="zoom:50%;" />
+
+and click OK
+
+<img src="assets/images/posts/README/Capture6.JPG" alt="Capture3" style="zoom:50%;" />
+
+and  OK
+
+<img src="assets/images/posts/README/Capture7.JPG" style="zoom:50%;" />
+
+Congratulations you have submitted your first Airflow applicatio.
