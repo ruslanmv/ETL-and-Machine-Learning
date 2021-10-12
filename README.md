@@ -353,6 +353,20 @@ You open the `spark-train-lr.ipynb` and run all cells, you will create  model.xm
 
 In order to create the Pipeline, we need a server with Airflow, in our project let us create a simple Airflow Locally by uysing Docker.
 
+### Creating a personal access token in Git
+
+You should create a personal access token to use in place of a password with the command line or with the API.  here are the [instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+Once you have a token, you can enter it instead of your password when performing Git operations over HTTPS
+
+
+
+### Create a repo in Github
+
+To put your DAGs of airflow u on GitHub, you'll need to create a repository for it to live in. [here instructions](https://docs.github.com/en/get-started/quickstart/create-a-repo)
+
+
+
 
 
 # Setting up Docker Compose
@@ -363,7 +377,54 @@ The first step is install [docker](https://docs.docker.com/desktop/windows/insta
 
 Docker containers can be ran in two ways: either in a bespoke capacity via the command line, or using a tool called [Docker Compose](https://docs.docker.com/compose/) that takes a yaml file which specifies which containers to run and how, and then does what's needed. 
 
-go to the folder airflow-docker\
+go to the folder airflow-docker
+
+To enable running of notebook pipelines on an existing Apache Airflow deployment
+
+- Enable Git as DAG storage by customizing the [Git settings in `airflow.cfg`](https://github.com/apache/airflow/blob/6416d898060706787861ff8ecbc4363152a35f45/airflow/config_templates/default_airflow.cfg#L913).
+
+First, we will start by creating DATA directory that will be used by Elyra to put DAG to github :
+
+```
+mkdir ./data
+```
+
+Next, we will create `./airflow` directory this one will hold files inside Airflow’s `AIRFLOW_HOME`:
+
+```
+mkdir ./airflow
+```
+
+```
+cd airflow
+```
+
+In this step you will try to create new file called `airflow.cfg` inside folder AIRFLOW and add to it these two lines:
+
+```
+[kubernetes]
+# Git credentials and repository for DAGs mounted via Git 
+git_repo =https://github.com/Cloud-Data-Science/DAG
+git_branch =main
+```
+
+
+
+
+
+- Install the [`airflow-notebook` Python package](https://github.com/elyra-ai/airflow-notebook) in the web-server, scheduler, and worker pods.
+
+
+
+```
+pip install airflow-notebook
+```
+
+we return back to the folder  airflow-docker
+
+```
+cd ..
+```
 
 and there is a  `docker-compose.yml` file that looks like this:
 
@@ -575,18 +636,6 @@ if you need  ubuntu you can follow this [link](https://min.io/download#/linux)
 
 
 
-### Creating a personal access token in Git
-
-You should create a personal access token to use in place of a password with the command line or with the API.  here are the [instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-
-Once you have a token, you can enter it instead of your password when performing Git operations over HTTPS
-
-
-
-### Create a repo in Github
-
-To put your DAGs of airflow u on GitHub, you'll need to create a repository for it to live in. [here instructions](https://docs.github.com/en/get-started/quickstart/create-a-repo)
-
 
 
 
@@ -670,9 +719,15 @@ We open the Pipeline editor
 
 ![](assets/images/posts/README/pipeline%20editor.jpg)
 
+we create a new notebook
+
 
 
 ![](assets/images/posts/README/pipeline1.jpg)
+
+
+
+then ...
 
 
 
