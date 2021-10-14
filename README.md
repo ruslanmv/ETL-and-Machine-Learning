@@ -28,6 +28,88 @@ First we  will create a Python environment with all needed tools. Then we are go
 
 ## Step 1. Setup of the Environment
 
+
+
+I present two ways to create your Environment 
+
+a) Docker Installation ( easy )
+
+b) Standard Installation 
+
+You can choose **just one option** to follow:
+
+
+
+###  a) Docker Installation 
+
+First you have to download and install docker desktop [here](https://www.docker.com/products/docker-desktop)
+
+[![](assets/images/posts/README/down-16342373633162.jpg)](https://www.docker.com/products/docker-desktop)
+
+after the installation is done, and docker is running,   go to your terminal and type the following command:
+
+```
+docker run  -p 8888:8888 ruslanmv/pyspark-elyra:3.0.2
+```
+
+you will get something like
+
+![](assets/images/posts/README/run.jpg)
+
+
+
+then copy your last url ,something similar like  `http://127.0.0.1:8888/lab?token=5fb30b71e29ad77cb92bcfaa7a546ddb6b26f5e92ebeabbb` and paste in your browser
+
+![](assets/images/posts/README/jupyterlab.jpg)
+
+then open the Terminal of JupyterLab 
+
+![](assets/images/posts/README/terminal.jpg)
+
+and type the following commands
+
+```
+conda create -n etl   python==3.8 findspark  -y
+conda activate etl
+```
+
+then in your terminal type the following commands:
+
+```
+conda install ipykernel -y
+python -m ipykernel install --user --name etl --display-name "Python 3.8 - (ETL)"
+```
+
+Installing additional libraries needed for this project 
+
+```
+pip install pyspark==3.1.2 wget==3.2 pyspark2pmml==0.5.1 ibm-watson-machine-learning==1.0.45
+```
+
+
+
+```
+pip install pyspark ibm-watson-machine-learning==1.0.45 pyspark2pmml wget
+```
+
+and finally clone the repository of this project
+
+```
+git clone https://github.com/ruslanmv/ETL-and-Machine-Learning.git
+```
+
+![](assets/images/posts/README/pyspark2.jpg)
+
+now you have a new folder called `ETL-and-Machine-Learning` you can open it and will see all the folders needed for this project
+
+![](assets/images/posts/README/folders.jpg)
+
+In addition  now you can start the  **Step 2.  Pulling the data**. 
+
+
+
+### b) Standard Installation
+
 First we need to install  **Nodejs** 16.11 
 
 In Windows you can install it by using [Chocolatey](https://docs.chocolatey.org/en-us/choco/setup) 
@@ -719,9 +801,35 @@ then **save and close**
 
 ![](assets/images/posts/README/Capture2a.JPG)
 
+### Step 9. Runtime Images with Pyspark
+
+We select the Runtime Image tab button
+
+![](assets/images/posts/README/run1.jpg)
 
 
-### Step 9. Airflow editor
+
+
+
+then we add new Runtime Image
+
+<img src="assets/images/posts/README/run2.jpg" style="zoom:50%;" />
+
+
+
+Like name we call  **Pyspark 3.02**  and the source: **ruslanmv/pyspark-runtime:3.0.2**with never policy then **save & close**
+
+<img src="assets/images/posts/README/runtime-16342453275003.jpg" style="zoom:50%;" />
+
+you will have the Runtime added 
+
+
+
+<img src="assets/images/posts/README/added.jpg" style="zoom:50%;" />
+
+
+
+### Step 10. Airflow editor
 
 Let us create the following pipeline:
 
@@ -753,9 +861,17 @@ then we select open properties
 
 and we call the this node like `input` for the node and we select the filename the notebook 
 
-`../input/input-data.ipynb` and we select the Runtime image Anaconda
+`../input/input-data.ipynb` and we select the Runtime image **Pyspark 3.0.2**
 
-<img src="assets/images/posts/README/Capture3.JPG" alt="Capture6" style="zoom:50%;" />
+<img src="assets/images/posts/README/capture6a.jpg" style="zoom:50%;" />
+
+
+
+additionally you can select the amount of memory and CPUs
+
+<img src="assets/images/posts/README/cpu.jpg" style="zoom:50%;" />
+
+
 
 then we return back and  run
 
@@ -775,4 +891,12 @@ and  OK
 
 <img src="assets/images/posts/README/Capture7.JPG" style="zoom:50%;" />
 
-Congratulations you have submitted your first Airflow applicatio.
+In the same way you can create the whole complete ETL
+
+
+
+![](assets/images/posts/README/full-etl.jpg)
+
+
+
+**Congratulations!** you have submitted your first Airflow application.

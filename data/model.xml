@@ -2,7 +2,7 @@
 <PMML xmlns="http://www.dmg.org/PMML-4_3" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.3">
 	<Header>
 		<Application name="JPMML-SparkML" version="1.6.0"/>
-		<Timestamp>2021-10-11T10:03:09Z</Timestamp>
+		<Timestamp>2021-10-14T20:19:42Z</Timestamp>
 	</Header>
 	<DataDictionary>
 		<DataField name="class" optype="categorical" dataType="string">
@@ -107,19 +107,19 @@
 			<OutputField name="probability(Liedown_bed)" optype="continuous" dataType="double" feature="probability" value="Liedown_bed"/>
 			<OutputField name="probability(Eat_soup)" optype="continuous" dataType="double" feature="probability" value="Eat_soup"/>
 		</Output>
-		<RegressionTable intercept="1.25622458801235" targetCategory="Walk"/>
-		<RegressionTable intercept="0.5503410739876051" targetCategory="Getup_bed"/>
-		<RegressionTable intercept="0.4871787826816718" targetCategory="Drink_glass"/>
-		<RegressionTable intercept="0.4604348151721968" targetCategory="Pour_water"/>
-		<RegressionTable intercept="0.42893711224231" targetCategory="Climb_stairs"/>
-		<RegressionTable intercept="0.17167020324070253" targetCategory="Eat_meat"/>
-		<RegressionTable intercept="0.12180968073422711" targetCategory="Brush_teeth"/>
-		<RegressionTable intercept="-0.028981984976456165" targetCategory="Standup_chair"/>
-		<RegressionTable intercept="-0.04921093213007936" targetCategory="Sitdown_chair"/>
-		<RegressionTable intercept="-0.10600274424183424" targetCategory="Comb_hair"/>
-		<RegressionTable intercept="-0.5336898516905894" targetCategory="Descend_stairs"/>
-		<RegressionTable intercept="-0.5506214132452645" targetCategory="Use_telephone"/>
-		<RegressionTable intercept="-0.8336237097180648" targetCategory="Liedown_bed"/>
-		<RegressionTable intercept="-1.374465620068775" targetCategory="Eat_soup"/>
+		<RegressionTable intercept="1.2551238628879768" targetCategory="Walk"/>
+		<RegressionTable intercept="0.5530966562171016" targetCategory="Getup_bed"/>
+		<RegressionTable intercept="0.4885197633921276" targetCategory="Drink_glass"/>
+		<RegressionTable intercept="0.45894796235239466" targetCategory="Pour_water"/>
+		<RegressionTable intercept="0.422011868785593" targetCategory="Climb_stairs"/>
+		<RegressionTable intercept="0.17280551809096908" targetCategory="Eat_meat"/>
+		<RegressionTable intercept="0.12387333367794334" targetCategory="Brush_teeth"/>
+		<RegressionTable intercept="-0.03398425834705791" targetCategory="Standup_chair"/>
+		<RegressionTable intercept="-0.04809952429993674" targetCategory="Sitdown_chair"/>
+		<RegressionTable intercept="-0.1056372081326859" targetCategory="Comb_hair"/>
+		<RegressionTable intercept="-0.5326548227130731" targetCategory="Descend_stairs"/>
+		<RegressionTable intercept="-0.5566664978524256" targetCategory="Use_telephone"/>
+		<RegressionTable intercept="-0.8294042387228222" targetCategory="Liedown_bed"/>
+		<RegressionTable intercept="-1.3679324153361043" targetCategory="Eat_soup"/>
 	</RegressionModel>
 </PMML>
