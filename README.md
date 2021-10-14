@@ -899,4 +899,14 @@ In the same way you can create the whole complete ETL
 
 
 
+At the end the results of the deployment is 
+
+![](assets/images/posts/README/finale.jpg)
+
+
+
+
+
+
+
 **Congratulations!** you have submitted your first Airflow application.
